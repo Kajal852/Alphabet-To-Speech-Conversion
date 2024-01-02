@@ -1,0 +1,17 @@
+table{
+    width: 1850px; 
+    height: 720px;
+}
+
+.chr{
+    font-size: 250px;
+    text-align: center;
+    background: whitesmoke;
+}
+
+.ima{
+    width: 920px;
+    height: 920px;
+    align-items: center;
+    background: whitesmoke;
+}

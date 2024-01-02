@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text To Speech</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function speech(ev){
+            let ch=document.getElementById('ch')
+            let imt=document.getElementById('img')
+            var str=ev.key.toUpperCase();
+       
+            var arr=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+            let arr1=new Map([["A","Apple"],["B","Ball"],["C","Cat"],["D","Dog"],["E","Elephants"],["F","Fish"],["G","Giraffe"],["H","Horse"],["I","Ice Cream"],["J","Jug"],["K","King"],["L","Lion"],["M","Monkey"],["N","Nest"],["O","Orange"],["P","Parrot"],["Q","Queen"],["R","Rabbit"],["S","Ship"],["T","Tiger"],["U","Umbrella"],["V","Van"],["W","Whale"],["X","Xmas tree"],["Y","Yatch"],["Z","Zebra"]]);
+            ch.innerHTML=str;
+            imt=str+'.jpg';
+            img.src=imt;
+         
+            var cm= arr1.get(str);
+        
+            if(speechSynthesis) {
+                var speech=new SpeechSynthesisUtterance();
+                speech.language="en-us";
+                speech.text=str+"for"+cm;
+                speech.volume=1;
+                speech.rate=1;
+                speech.pitch=2;
+                window.speechSynthesis.speak(speech);
+            } else
+                alert("Sorry !! Speech API Not Supported..");
+     }    
+    </script>
+</head>
+<body onkeyup="speech(event);">
+    <center>
+    <table border="1" cellspacing="0" >
+        <tr style="height: 920px; width: 920px;">
+            <td class="chr" style="height: 920px; width: 920px;"><h1 id="ch" name="ch"></h1></td>
+            <td style="height: 920px; width: 920px;"><img name="img" id="img" class="ima"></td>
+        </tr>
+    </table>
+    </center>
+</body>
+</html>
